@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>DIMA & YULIA | DEF FAM + Баффи мейн-кун</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: radial-gradient(circle at 30% 10%, #03050B, #0A0D1E, #000000);
+            background-attachment: fixed;
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+            color: #fff;
+            line-height: 1.3;
+            min-height: 100vh;
+            padding: 1.8rem;
+            position: relative;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: repeating-linear-gradient(45deg, rgba(255, 30, 100, 0.02) 0px, rgba(255, 30, 100, 0.02) 2px, transparent 2px, transparent 12px),
+                              repeating-linear-gradient(135deg, rgba(0, 255, 200, 0.015) 0px, rgba(0, 255, 200, 0.015) 1px, transparent 1px, transparent 20px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 3;
+        }
+
+        html {
+            font-size: 18px;
+        }
+        @media (max-width: 750px) {
+            html { font-size: 16px; }
+            body { padding: 1.2rem; }
+        }
+        @media (max-width: 500px) {
+            html { font-size: 15px; }
+        }
+
+        .swag-hero {
+            text-align: center;
+            margin-bottom: 3rem;
+            transform: skew(-2deg);
+        }
+        .swag-hero h1 {
+            font-size: 5rem;
+            font-weight: 900;
+            letter-spacing: -0.02em;
+            background: linear-gradient(125deg, #FFD966, #FF5C8A, #A0FFE0);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 18px rgba(255, 80, 120, 0.5);
+            margin-bottom: 0.5rem;
+            filter: drop-shadow(4px 4px 0 #FF2D55);
+        }
+        .hero-slogan {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(0, 0, 0, 0.65);
+            backdrop-filter: blur(12px);
+            padding: 0.65rem 2rem;
+            border-radius: 80px;
+            border-left: 4px solid #FFE600;
+            border-right: 4px solid #FF3B6F;
+            font-size: 1.25rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .hero-slogan i {
+            color: #FFE600;
+            font-size: 1.4rem;
+        }
+
+        .swag-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin: 2.5rem 0 2rem;
+        }
+
+        .swag-card {
+            background: rgba(8, 12, 25, 0.75);
+            backdrop-filter: blur(16px);
+            border-radius: 2rem;
+            padding: 2rem 1.8rem;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            transition: all 0.25s ease;
+            box-shadow: 12px 12px 0 rgba(255, 50, 100, 0.2), 0 20px 30px -12px black;
+        }
+        .swag-card:hover {
+            transform: translateY(-8px) scale(1.01);
+            border-color: #FFD700;
+            box-shadow: 16px 16px 0 rgba(0, 255, 200, 0.25), 0 25px 35px -12px black;
+            background: rgba(12, 16, 32, 0.9);
+        }
+
+        .avatar-swag {
+            font-size: 4rem;
+            background: linear-gradient(145deg, #FF4D6D, #2B2F4A);
+            width: 90px;
+            height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 35px 15px 35px 15px;
+            margin-bottom: 1.4rem;
+            box-shadow: 6px 6px 0 #FFC300;
+            color: #FFE484;
+        }
+
+        .card-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 0.6rem;
+            margin-bottom: 0.5rem;
+        }
+        .swag-name {
+            background: linear-gradient(130deg, #FFF5CC, #FFBC6E);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .swag-badge {
+            background: #FF2D55;
+            color: white;
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            border: 1px solid #FFE600;
+        }
+
+        .info-swag {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin: 1rem 0 1rem;
+            padding-bottom: 0.6rem;
+            border-bottom: 2px solid #FFB34780;
+        }
+        .info-swag i {
+            color: #FFD966;
+            width: 2rem;
+            font-size: 1.5rem;
+        }
+
+        .swag-highlight {
+            background: #00000055;
+            border-radius: 1.5rem;
+            padding: 1rem 1.2rem;
+            margin: 1rem 0;
+            border-left: 6px solid #FFE600;
+            backdrop-filter: blur(4px);
+        }
+        .swag-label {
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            font-weight: 800;
+            color: #FFE484;
+            text-transform: uppercase;
+            margin-bottom: 0.3rem;
+        }
+        .dream-swag-text {
+            font-size: 1.8rem;
+            font-weight: 800;
+            line-height: 1.2;
+            background: linear-gradient(145deg, #FFFFFF, #FFDA8C);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .power-swag-text {
+            font-size: 1.8rem;
+            font-weight: 800;
+            line-height: 1.2;
+            color: #FFE69A;
+        }
+        .desc-swag {
+            font-size: 1rem;
+            margin-top: 0.7rem;
+            font-weight: 500;
+            color: #ddd;
+        }
+
+        .swag-accent {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #FF2D5540;
+            border-radius: 60px;
+            padding: 0.3rem 1rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-top: 1rem;
+            border: 0.5px solid #FFB347;
+        }
+        .stats-swag {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-top: 1.2rem;
+        }
+        .stats-swag span {
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 60px;
+            padding: 0.3rem 1rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            border: 0.5px solid #FFC300;
+        }
+
+        .duo-swag {
+            background: linear-gradient(105deg, rgba(0, 0, 0, 0.8), rgba(30, 20, 50, 0.9));
+            backdrop-filter: blur(12px);
+            border-radius: 3rem;
+            padding: 2rem;
+            text-align: center;
+            margin: 2rem auto 0;
+            border: 1px solid gold;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+            transform: skewY(-0.5deg);
+        }
+        .duo-swag p {
+            font-size: 1.6rem;
+            font-weight: 800;
+        }
+        .duo-swag i {
+            margin: 0 0.5rem;
+            color: #FFE600;
+        }
+
+        /* УВЕЛИЧЕННЫЙ БЛОК КОТА С БОЛЬШОЙ КАРТИНКОЙ */
+        .cat-section {
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: center;
+        }
+        .cat-card {
+            background: linear-gradient(125deg, rgba(0, 0, 0, 0.8), rgba(45, 30, 20, 0.9));
+            backdrop-filter: blur(12px);
+            border-radius: 2.5rem;
+            padding: 1.8rem 2.5rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            border: 1px solid #FFA559;
+            box-shadow: 0 0 20px rgba(255, 140, 0, 0.4);
+            transition: 0.2s;
+            min-width: 320px;
+        }
+        .cat-card:hover {
+            transform: scale(1.01);
+            border-color: #FFD966;
+            box-shadow: 0 0 28px #FFA559;
+        }
+        /* КРУПНОЕ ФОТО КОШКИ */
+        .cat-photo {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #FFC300;
+            box-shadow: 0 0 0 3px #FF6F4A, 0 10px 25px rgba(0,0,0,0.5);
+            background: #3A2010;
+            transition: transform 0.2s;
+        }
+        .cat-photo:hover {
+            transform: scale(1.02);
+        }
+        .cat-info {
+            text-align: left;
+            max-width: 380px;
+        }
+        .cat-info h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #FFBC6E, #FF8C42);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: -0.5px;
+            margin-bottom: 0.5rem;
+        }
+        .cat-info p {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #FFDEB3;
+            margin-top: 0.5rem;
+        }
+        .cat-info i {
+            margin-right: 0.5rem;
+            color: #FFB347;
+            width: 1.6rem;
+        }
+        .note-cat {
+            font-size: 0.85rem;
+            color: #FFC68A;
+            margin-top: 10px;
+            font-style: italic;
+            border-top: 1px dashed #FFA55960;
+            padding-top: 8px;
+        }
+
+        .footer-swag {
+            text-align: center;
+            margin-top: 2.5rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #FFC285;
+            border-top: 2px solid rgba(255, 215, 0, 0.5);
+            padding-top: 1.8rem;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 750px) {
+            .cat-photo {
+                width: 140px;
+                height: 140px;
+            }
+            .cat-card {
+                padding: 1.2rem 1.5rem;
+                gap: 1.2rem;
+            }
+            .cat-info h3 {
+                font-size: 1.6rem;
+            }
+            .cat-info p {
+                font-size: 0.95rem;
+            }
+        }
+        @media (max-width: 550px) {
+            .cat-photo {
+                width: 120px;
+                height: 120px;
+            }
+            .cat-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            .cat-info {
+                text-align: center;
+            }
+        }
+
+        .fa-table-tennis-paddle-ball, .fa-calculator, .fa-trophy {
+            filter: drop-shadow(0 0 4px #FFD966);
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="swag-hero">
+        <h1>🔥 DEF FAM 🔥</h1>
+        <div class="hero-slogan">
+            <i class="fas fa-crown"></i> DIMA · YULIA · BUFFY <i class="fas fa-cat"></i>
+        </div>
+    </div>
+
+    <div class="swag-grid">
+        <!-- ДИМА -->
+        <div class="swag-card">
+            <div class="avatar-swag">
+                <i class="fas fa-table-tennis-paddle-ball"></i>
+            </div>
+            <div class="card-title">
+                <span class="swag-name">DIMA</span>
+                <span class="swag-badge"><i class="fas fa-birthday-cake"></i> 11 лет</span>
+            </div>
+            <div class="info-swag">
+                <i class="fas fa-fire"></i>
+                <span>🔥 FUTURE TABLE TENNIS LEGEND 🔥</span>
+            </div>
+            <div class="swag-highlight">
+                <div class="swag-label"><i class="fas fa-trophy"></i> DREAM MODE</div>
+                <div class="dream-swag-text">«хочу стать про-теннисистом!»</div>
+                <div class="desc-swag">
+                    Дима крашит стол: топ-спин, молния-реакция и чистая техника. 
+                    Каждый день в зале — работа над скоростью. Его цель — чемпионат мира.
+                </div>
+                <div class="swag-accent">
+                    <i class="fas fa-chart-line"></i> 550+ часов практики | <i class="fas fa-bolt"></i> удар 60 км/ч
+                </div>
+            </div>
+            <div class="stats-swag">
+                <span><i class="fas fa-clock"></i> 5 дней/неделю</span>
+                <span><i class="fas fa-brain"></i> топ-спин машина</span>
+                <span><i class="fas fa-medal"></i> ITTF goal top-10</span>
+            </div>
+        </div>
+
+        <!-- ЮЛЯ -->
+        <div class="swag-card">
+            <div class="avatar-swag">
+                <i class="fas fa-user-check"></i>
+            </div>
+            <div class="card-title">
+                <span class="swag-name">YULIA</span>
+                <span class="swag-badge"><i class="fas fa-crown"></i> супермама</span>
+            </div>
+            <div class="info-swag">
+                <i class="fas fa-calculator"></i>
+                <span>📐 ФИНАНСОВЫЙ ГЕНИЙ</span>
+            </div>
+            <div class="swag-highlight">
+                <div class="swag-label"><i class="fas fa-chart-line"></i> SUPERPOWER</div>
+                <div class="power-swag-text">🏆 ЛУЧШИЙ БУХГАЛТЕР 🏆</div>
+                <div class="desc-swag">
+                    Юля — профи: сводит балансы, оптимизирует бюджеты, превращает хаос в порядок. 
+                    С её магией семья всегда в плюсе.
+                </div>
+                <div class="swag-accent">
+                    <i class="fas fa-magic"></i> 0 ошибок | <i class="fas fa-lightbulb"></i> финансовая стратегия
+                </div>
+            </div>
+            <div class="stats-swag">
+                <span><i class="fas fa-file-invoice-dollar"></i> идеальный баланс</span>
+                <span><i class="fas fa-chart-pie"></i> управление бюджетами</span>
+                <span><i class="fas fa-cogs"></i> автоматизация 24/7</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- БЛОК ПОДДЕРЖКИ -->
+    <div class="duo-swag">
+        <p>
+            <i class="fas fa-quote-left"></i> 
+            <strong>ЮЛЯ — ЛУЧШИЙ БУХГАЛТЕР, КОТОРЫЙ ПРОСЧИТАЕТ ЛЮБУЮ ПОБЕДУ, И ВСЕГДА ПОДДЕРЖИТ ДИМУ НА СОРЕВНАХ ПО НАСТОЛЬНОМУ ТЕННИСУ!</strong> 
+            <i class="fas fa-quote-right"></i>
+        </p>
+        <div style="margin-top: 1rem; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; font-weight: 700;">
+            <span><i class="fas fa-table-tennis-paddle-ball"></i> TOP SPIN KING</span>
+            <span><i class="fas fa-calculator"></i> ФИНАНСОВАЯ МАГИЯ</span>
+        </div>
+        <div style="margin-top: 1.4rem; background: #FF2D5540; border-radius: 2rem; padding: 0.5rem 1.2rem; display: inline-block; backdrop-filter: blur(8px); font-weight: bold; border: 1px solid gold;">
+            <i class="fas fa-hand-peace"></i> #DEFFAM · REAL SUPPORT
+        </div>
+    </div>
+
+    <!-- КОШКА БАФФИ — УВЕЛИЧЕННАЯ КАРТИНКА И МЕСТО -->
+    <div class="cat-section">
+        <div class="cat-card">
+            <img class="cat-photo" src="https://kotby.by/images/stat_foto/Screenshot_7996.jpg" alt="Рыжая мейн-кун Баффи" onerror="this.onerror=null; this.src='https://via.placeholder.com/180x180?text=Баффи+Мейн-кун';">
+            <div class="cat-info">
+                <h3><i class="fas fa-paw"></i> Баффи · Рыжая королева</h3>
+                <p><i class="fas fa-calendar-alt"></i> Возраст: 5-6 лет · <i class="fas fa-palette"></i> Окрас: рыжий (золотисто-огненный)</p>
+                <p><i class="fas fa-heart" style="color:#FF8C42;"></i> Мейн-кун с характером чемпиона. Любит наблюдать за теннисными тренировками Димы и спать на бухгалтерских отчётах Юли.</p>
+                <div class="note-cat"><i class="fas fa-camera"></i> Баффи — именно так она выглядит: огненно-рыжая красавица с пушистой гривой и королевской осанкой.</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-swag">
+        <i class="fas fa-crown"></i> DIMA · БУДУЩИЙ ЧЕМПИОН МИРА ПО НАСТОЛЬНОМУ ТЕННИСУ  |  ЮЛЯ · ЛУЧШИЙ БУХГАЛТЕР  |  🐱 БАФФИ · МЕЙН-КУН (5-6 лет, рыжий) <i class="fas fa-heart" style="color:#FF5C8A;"></i>
+        <br><span style="font-size: 0.7rem;">#DEFFAM #TABLETENNIS #BESTACCOUNTANT #BUFFYTHECAT #РЫЖИЙМЕЙНКУН</span>
+    </div>
+</div>
+</body>
+</html>
